@@ -1,0 +1,40 @@
+<p>Hi {{currentUser.username}}!</p>
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="#">Home</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Kho</li>
+  </ol>
+</nav>
+<form>>
+  <div class="form-group">
+    <label for="exampleFormControlInput1">Tên kho</label>
+    <input type="text" class="form-control form-control-md" id="inputStockName" placeholder="Nhập tên">
+    <!-- <input type="text" class="form-control" id="name" required [(ngModel)]="model.name" name="name"> -->
+    
+  </div>
+
+  <div class="form-group">
+    <label for="exampleFormControlFile1">Thuộc tính(chọn nhiều)</label>
+    <select class="form-control" id="inputProperties" multiple = "multiple" required>        
+      <option *ngFor="let name of names; index as id; first as isFirst; last as IsLast" [value]="id" [selected]="IsLast" >{{name}}</option>
+    </select>
+  </div>
+
+  <div class="form-check">
+    <input type="checkbox" class="form-check-input" checked id="inputActiveYN">
+    <label class="form-check-label" for="exampleCheck1">Sử dụng</label>
+  </div>
+
+  <button type="submit" class="btn btn-primary">Lưu</button>
+</form
+
+<!-- Initialize the plugin: multi select -->
+<!-- Include the plugin's CSS and JS: -->
+<script type="text/javascript" src="/src/assets/multiselect/bootstrap-multiselect.js"></script>
+<link rel="stylesheet" href="/src/assets/multiselect/bootstrap-multiselect.css" type="text/css"/>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#inputProperties').multiselect();
+    });
+</script>
